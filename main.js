@@ -1,10 +1,13 @@
-let number = [];
+let numbers = [];
+const input = document.querySelector("input")
+const span = document.querySelector("span")
+
 
 function add() {
-    let numberEntered = parseFloat(document.querySelector("input").value)
+    let numberEntered = parseFloat(input.value)
     if(!isNaN(numberEntered)){
-        number.push(numberEntered)
-        document.querySelector("input").value=''
+        numbers.push(numberEntered)
+        input.value=''
         update()
     }
 }
@@ -12,26 +15,26 @@ function add() {
 function calculate(){
     let sum = 0
 
-    for (let i=0; i<number.length; i++){
-        sum += number[i]
+    for (let i=0; i<numbers.length; i++){
+        sum += numbers[i]
     }
-    document.querySelector("span").textContent = sum
+   span.textContent = sum
 }
 
 function update(){
     let result = ""
 
-    for (let i=0; i<number.length; i++){
+    for (let i=0; i<numbers.length; i++){
         if(i > 0 ){
             result += "+"
     }
-    result += number[i]
+    result += numbers[i]
     }
-    document.querySelector("span").textContent = result
+    span.textContent = result
 }
 
 function clean(){
-    number = []
-    document.querySelector("input").value = ''
-    document.querySelector("span").textContent = "0"
+    numbers = []
+    input.value = ''
+    span.textContent = "0"
 }
